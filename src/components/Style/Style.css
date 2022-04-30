@@ -7,12 +7,21 @@
 .fs-9 {
     font-size: 50px;
 }
+.product_section {
+    background-color: #ffffff;
+}
 .fw-7 {
     font-weight: 400;
 }
 .hero-fs {
     font-size: 80px;
     font-weight: 300;
+}
+.fruit_container {
+    background-color: #f6f9fc;
+}
+.fruit_section_bg_color {
+    background-color: #b8e994;
 }
 
 /* login  */

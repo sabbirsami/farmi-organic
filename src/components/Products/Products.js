@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Container, Row } from "react-bootstrap";
 import Product from "../Product/Product";
+import "../Style/Style.css";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -9,10 +11,14 @@ const Products = () => {
             .then((data) => setProducts(data));
     }, []);
     return (
-        <div>
-            {products.map((product) => (
-                <Product key={product.id} product={product}></Product>
-            ))}
+        <div className="product_section">
+            <Container>
+                <Row>
+                    {products.map((product) => (
+                        <Product key={product.id} product={product}></Product>
+                    ))}
+                </Row>
+            </Container>
         </div>
     );
 };

@@ -51,7 +51,7 @@ const Hero = () => {
                 </Row>
             </Container>
             <Featured></Featured>
-            {/* <Products></Products> */}
+            <Products></Products>
         </div>
     );
 };

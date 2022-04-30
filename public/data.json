@@ -44,18 +44,18 @@
     },
     {
         "id": "4",
-        "price": "$800",
-        "name": "Pomegranate",
-        "about": "For most weddings with premium plans ",
+
+        "price": "$300",
+        "name": "Green Lemon",
+        "about": "For most businesses event like book fair, craft fair.",
         "services": [
-            "Up to 75 images",
-            "File Optimization and Author Tags",
-            "Professional Filters and Correction",
-            "Product Photography",
-            "Includes up to 25 product image"
+            "Up to 200 images",
+            "Color Correction",
+            "Background Removal & Custom Design"
         ],
-        "img": "https://i.ibb.co/tBtJ251/pomegranate.png"
+        "img": "https://i.ibb.co/PgBC0Vx/green-lemon.png"
     },
+
     {
         "id": "5",
         "price": "$800",
@@ -96,19 +96,20 @@
             "Product Photography",
             "Includes up to 25 product image"
         ],
-        "img": "https://ibb.co/Tg1dq8b"
+        "img": "https://i.ibb.co/Nyrbnjm/9-2-mango-transparent.png"
     },
     {
-        "id": "7",
-
-        "price": "$300",
-        "name": "Green Lemon",
-        "about": "For most businesses event like book fair, craft fair.",
+        "id": "8",
+        "price": "$800",
+        "name": "Pomegranate",
+        "about": "For most weddings with premium plans ",
         "services": [
-            "Up to 200 images",
-            "Color Correction",
-            "Background Removal & Custom Design"
+            "Up to 75 images",
+            "File Optimization and Author Tags",
+            "Professional Filters and Correction",
+            "Product Photography",
+            "Includes up to 25 product image"
         ],
-        "img": "https://i.ibb.co/PgBC0Vx/green-lemon.png"
+        "img": "https://i.ibb.co/tBtJ251/pomegranate.png"
     }
 ]

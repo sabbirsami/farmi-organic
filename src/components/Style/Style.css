@@ -1,0 +1,43 @@
+.fs-7 {
+    font-size: 35px;
+}
+.fs-8 {
+    font-size: 40px;
+}
+.fs-9 {
+    font-size: 50px;
+}
+.fw-7 {
+    font-weight: 400;
+}
+.hero-fs {
+    font-size: 80px;
+    font-weight: 300;
+}
+
+/* login  */
+.login_section {
+    width: 100%;
+    height: 92vh;
+    background-image: url("../../img/loginbg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.first_featured_body {
+    width: 100%;
+    height: 30vh;
+    background-image: url("../../img/featured-img01.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.second_featured_body {
+    width: 100%;
+    height: 30vh;
+    background-image: url("../../img/featured-img02.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,29 +1,28 @@
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import CustomLink from "../CustomLink/CustomLink";
+import "../Style/Style.css";
 
 const HeaderNav = () => {
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="white" variant="white">
+            <Navbar collapseOnSelect expand="lg" bg="warning" variant="white">
                 <Container>
-                    <Navbar.Brand href="#home">Farmi Organic</Navbar.Brand>
+                    <Navbar.Brand href="#home" className="fs-7 text-dark">
+                        Farmi Organic
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="#features">Home</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        <Nav className="ms-auto">
+                            <CustomLink to="/">Home</CustomLink>
+                            <CustomLink to="products">Products</CustomLink>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Log in</Nav.Link>
-                            {/* <Nav.Link eventKey={2} href="#memes">
+                            <CustomLink to="/login">Log in</CustomLink>
+                            {/* <CustomLink eventKey={2} href="#memes">
                                 Dank memes
-                                <FontAwesomeIcon
-                                    icon={faBars}
-                                    style={{ color: "#2ff1f2" }}
-                                />
-                            </Nav.Link> */}
+                                
+                            </CustomLink> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

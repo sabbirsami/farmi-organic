@@ -1,0 +1,114 @@
+[
+    {
+        "id": "1",
+        "price": "$1200",
+        "name": "Papaya",
+        "about": "For most corporate business events",
+        "services": [
+            "Up to 200 images",
+            "File Optimization and Author Tags",
+            "Professional Filters and Correction",
+            "Product Photography",
+            "Background Removal & Custom Design"
+        ],
+        "img": "https://i.ibb.co/N2gMjM0/papaya.png"
+    },
+
+    {
+        "id": "2",
+        "price": "$500",
+        "name": "Kiwi",
+        "about": "For weddings with basic plan and limited item",
+        "services": [
+            "Up to 40 images",
+            "Color Correction",
+            "Image Filters / Contrast Correction",
+            "Product Photography",
+            "Graphic Design"
+        ],
+        "img": "https://i.ibb.co/MCR6SLQ/kiwi.png"
+    },
+    {
+        "id": "3",
+        "price": "$800",
+        "name": "Apple",
+        "about": "For most weddings with premium plans ",
+        "services": [
+            "Up to 75 images",
+            "File Optimization and Author Tags",
+            "Professional Filters and Correction",
+            "Product Photography",
+            "Includes up to 25 product image"
+        ],
+        "img": "https://i.ibb.co/6rr3YfR/apple.png"
+    },
+    {
+        "id": "4",
+        "price": "$800",
+        "name": "Pomegranate",
+        "about": "For most weddings with premium plans ",
+        "services": [
+            "Up to 75 images",
+            "File Optimization and Author Tags",
+            "Professional Filters and Correction",
+            "Product Photography",
+            "Includes up to 25 product image"
+        ],
+        "img": "https://i.ibb.co/tBtJ251/pomegranate.png"
+    },
+    {
+        "id": "5",
+        "price": "$800",
+        "name": "Lemon",
+        "about": "For most weddings with premium plans ",
+        "services": [
+            "Up to 75 images",
+            "File Optimization and Author Tags",
+            "Professional Filters and Correction",
+            "Product Photography",
+            "Includes up to 25 product image"
+        ],
+        "img": "https://i.ibb.co/w0rTPZq/lemon.png"
+    },
+    {
+        "id": "6",
+        "price": "$800",
+        "name": "Orange",
+        "about": "For most weddings with premium plans ",
+        "services": [
+            "Up to 75 images",
+            "File Optimization and Author Tags",
+            "Professional Filters and Correction",
+            "Product Photography",
+            "Includes up to 25 product image"
+        ],
+        "img": "https://i.ibb.co/3fLWnsW/orange.png"
+    },
+    {
+        "id": "7",
+        "price": "$800",
+        "name": "Mango",
+        "about": "For most weddings with premium plans ",
+        "services": [
+            "Up to 75 images",
+            "File Optimization and Author Tags",
+            "Professional Filters and Correction",
+            "Product Photography",
+            "Includes up to 25 product image"
+        ],
+        "img": "https://ibb.co/Tg1dq8b"
+    },
+    {
+        "id": "7",
+
+        "price": "$300",
+        "name": "Green Lemon",
+        "about": "For most businesses event like book fair, craft fair.",
+        "services": [
+            "Up to 200 images",
+            "Color Correction",
+            "Background Removal & Custom Design"
+        ],
+        "img": "https://i.ibb.co/PgBC0Vx/green-lemon.png"
+    }
+]

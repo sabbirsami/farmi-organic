@@ -8,7 +8,7 @@
     font-size: 50px;
 }
 .product_section {
-    background-color: #ffffff;
+    background-color: #f6f9fc;
 }
 .fw-7 {
     font-weight: 400;
@@ -18,10 +18,15 @@
     font-weight: 300;
 }
 .fruit_container {
-    background-color: #f6f9fc;
+    background-color: #ffffff;
+    height: 465px;
 }
 .fruit_section_bg_color {
-    background-color: #b8e994;
+    background-color: #ffffff;
+}
+.fruit_section_bg_color img {
+    height: 250px;
+    width: 250px !important;
 }
 
 /* login  */

@@ -6,13 +6,14 @@ import heroImage from "../../img/9-2-fruit-free-download-png.png";
 import "../Style/Style.css";
 import Products from "../Products/Products";
 import Featured from "../Featured/Featured";
+import CustomerReview from "../CustomarReview/CustomerReview";
 
 const Hero = () => {
     return (
         <div>
             <Container>
-                <Row>
-                    <div className="d-lg-flex align-items-center pt-5">
+                <Row className="py-lg-5">
+                    <div className="d-lg-flex align-items-center py-5">
                         <div className="col-lg-6">
                             <div className="hero-info fs-sm-3 text-lg-start">
                                 <h4 className="fs-8 fw-7 pt-5">Wallcome to</h4>
@@ -50,8 +51,9 @@ const Hero = () => {
                     </div>
                 </Row>
             </Container>
-            <Featured></Featured>
             <Products></Products>
+            <Featured></Featured>
+            <CustomerReview></CustomerReview>
         </div>
     );
 };

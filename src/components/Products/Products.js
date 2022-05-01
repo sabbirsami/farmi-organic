@@ -13,6 +13,11 @@ const Products = () => {
     return (
         <div className="product_section">
             <Container>
+                <div className="pt-5">
+                    <h1 className="text-start pt-5 pb-2">
+                        Some of the fresh fruit
+                    </h1>
+                </div>
                 <Row>
                     {products.map((product) => (
                         <Product key={product.id} product={product}></Product>

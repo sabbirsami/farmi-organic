@@ -9,7 +9,7 @@ const Featured = () => {
         <div className=" py-5 m-0">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-6 ">
+                    <div className="col-lg-6 pt-2">
                         <div className="first_featured_body d-flex flex-column justify-content-end p-5  shadow rounded-3">
                             <h2 className="text-end fs-1">World Best Fruits</h2>
                             <p className="text-end">
@@ -17,7 +17,7 @@ const Featured = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-6 pt-2">
                         <div className="second_featured_body d-flex flex-column justify-content-end p-5  shadow rounded-3">
                             <h2 className="text-start fs-1">
                                 100% Fresh Fruit

@@ -6,23 +6,28 @@ import "../Style/Style.css";
 const HeaderNav = () => {
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="warning" variant="white">
+            {/* className="border-bottom border" */}
+            <Navbar
+                className="py-2"
+                collapseOnSelect
+                expand="lg"
+                bg="dark"
+                variant="dark"
+            >
                 <Container>
-                    <Navbar.Brand href="#home" className="fs-7 text-dark">
-                        Farmi Organic
-                    </Navbar.Brand>
+                    <Navbar.Brand href="#home">Farmi Organic</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
                             <CustomLink to="/">Home</CustomLink>
-                            <CustomLink to="products">Products</CustomLink>
+                            <CustomLink to="/products">Products</CustomLink>
+                            <CustomLink to="/about">About</CustomLink>
                         </Nav>
                         <Nav>
-                            <CustomLink to="/login">Log in</CustomLink>
-                            {/* <CustomLink eventKey={2} href="#memes">
-                                Dank memes
-                                
-                            </CustomLink> */}
+                            {/* <CustomLink to="/deets">Log In</CustomLink> */}
+                            <CustomLink eventKey={2} to="/login">
+                                Log In
+                            </CustomLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

@@ -8,12 +8,12 @@ const CustomLink = ({ children, to, ...props }) => {
         <div>
             <Link
                 style={{
-                    fontSize: "20px",
+                    fontSize: "17px",
                     padding: " 10px 20px",
                     fontWeight: "400",
                     textDecoration: "none",
-                    color: match ? "white" : "black",
-                    backgroundColor: match ? " #DD3B4B" : "",
+                    color: match ? "black" : "white",
+                    backgroundColor: match ? " #f39c12" : "",
                     borderRadius: match ? " 30px" : "none",
                 }}
                 to={to}

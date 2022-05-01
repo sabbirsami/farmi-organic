@@ -45,6 +45,17 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.login_container .form-control {
+    height: 48px;
+    background: rgba(1, 0, 0, 0.09);
+    color: #000;
+    font-size: 16px;
+    border-radius: 50px;
+
+    border: 1px solid transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
 .first_featured_body {
     width: 100%;

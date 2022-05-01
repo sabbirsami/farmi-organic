@@ -7,6 +7,7 @@ import "../Style/Style.css";
 import Products from "../Products/Products";
 import Featured from "../Featured/Featured";
 import CustomerReview from "../CustomarReview/CustomerReview";
+import FontSideProducts from "../FontSideProducts/FontSideProducts";
 
 const Hero = () => {
     return (
@@ -51,7 +52,7 @@ const Hero = () => {
                     </div>
                 </Row>
             </Container>
-            <Products></Products>
+            <FontSideProducts></FontSideProducts>
             <Featured></Featured>
             <CustomerReview></CustomerReview>
         </div>

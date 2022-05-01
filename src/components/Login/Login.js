@@ -9,6 +9,7 @@ const Login = () => {
         <div className="login_section ">
             <Container>
                 <Row>
+                    <h1 className="pt-5">Login</h1>
                     <div className="login-form justify-content-center align-items-center">
                         <div className="col-lg-7 mx-auto">
                             <div className="form-container">
@@ -57,7 +58,7 @@ const Login = () => {
                             <div className="singUp">
                                 <h5>
                                     Don't have an account?{" "}
-                                    <Link to={"singup"}>
+                                    <Link to={"/signup"}>
                                         {" "}
                                         Create an Account
                                     </Link>

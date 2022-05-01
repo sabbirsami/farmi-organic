@@ -6,8 +6,8 @@ import "../Style/Style.css";
 
 const Featured = () => {
     return (
-        <div>
-            <div className="container-fluid py-5 m-0">
+        <div className=" py-5 m-0">
+            <div className="container">
                 <div className="row">
                     <div className="col-lg-6 ">
                         <div className="first_featured_body d-flex flex-column justify-content-end p-5  shadow rounded-3">

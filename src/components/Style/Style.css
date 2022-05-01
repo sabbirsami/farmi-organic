@@ -9,6 +9,8 @@
 }
 .product_section {
     background-color: #f6f9fc;
+    border-radius: 80px 80px 0 0;
+    padding-bottom: 50px;
 }
 .fw-7 {
     font-weight: 400;
@@ -27,6 +29,11 @@
 .fruit_section_bg_color img {
     height: 250px;
     width: 250px !important;
+}
+.customer-review-section {
+    background-color: #f6f9fc;
+
+    padding-bottom: 50px;
 }
 
 /* login  */

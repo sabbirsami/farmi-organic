@@ -18,13 +18,18 @@ const ManageInventory = () => {
                         <Table striped bordered hover>
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
+                                    <th className="text-start">Name</th>
+                                    <th className="text-start">
+                                        Supplier Name
+                                    </th>
+                                    <th className="text-start">Quantity</th>
+                                    <th className="text-start">Price</th>
+                                    <th className="text-start">
+                                        Want To Delete?
+                                    </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="text-start">
                                 {products.map((product) => (
                                     <SingleInventory
                                         key={product._id}

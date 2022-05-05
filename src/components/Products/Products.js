@@ -6,7 +6,7 @@ import "../Style/Style.css";
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch("data.json")
+        fetch("https://cryptic-ridge-39056.herokuapp.com/product")
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);
@@ -23,7 +23,7 @@ const Products = () => {
                 </div>
                 <Row>
                     {products.map((product) => (
-                        <Product key={product.id} product={product}></Product>
+                        <Product key={product._id} product={product}></Product>
                     ))}
                 </Row>
             </Container>

@@ -17,7 +17,7 @@ const Hero = () => {
                     <div className="d-lg-flex align-items-center py-5">
                         <div className="col-lg-6">
                             <div className="hero-info fs-sm-3 text-lg-start">
-                                <h4 className="fs-8 fw-7 pt-5">Wallcome to</h4>
+                                <h4 className="fs-8 fw-7 pt-5">Welcome to</h4>
                                 <h1 className="hero-fs mb-5">
                                     <span className="text-danger">
                                         Farmi Organic

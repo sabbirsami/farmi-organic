@@ -3,7 +3,7 @@ import useProducts from "../hooks/useProducts";
 import SingleInventory from "./SingleInventory";
 
 const ManageInventory = () => {
-    const [products, setProducts] = useProducts([]);
+    const [products] = useProducts([]);
 
     return (
         <div>

@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Style/Style.css";
 import { Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../Loading/Loading";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [signInWithEmailAndPassword, user, loading, error] =
+        useSignInWithEmailAndPassword(auth);
+    if (user) {
+        navigate("/");
+    }
+    if (loading) {
+        return <Loading></Loading>;
+    }
+    let errorElement;
+    if (error) {
+        errorElement = (
+            <div>
+                <p className="text-danger">Error: {error?.message}</p>
+            </div>
+        );
+    }
+    const handleLogin = (e) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(email, password);
+    };
     return (
         // d-flex justify-content-center align-items-center
         <div className="login_section ">
@@ -23,6 +49,9 @@ const Login = () => {
                                                 Your Email
                                             </label>
                                             <input
+                                                onChange={(e) =>
+                                                    setEmail(e.target.value)
+                                                }
                                                 className="form-control"
                                                 type="email"
                                                 name="email"
@@ -38,6 +67,9 @@ const Login = () => {
                                                 Your Password
                                             </label>
                                             <input
+                                                onChange={(e) =>
+                                                    setPassword(e.target.value)
+                                                }
                                                 className="form-control"
                                                 type="password"
                                                 name="password"
@@ -45,8 +77,10 @@ const Login = () => {
                                                 placeholder="Your Password"
                                             />
                                         </div>
+                                        <p>{errorElement}</p>
                                         <div className="submit_section px-3 pt-2">
                                             <input
+                                                onClick={handleLogin}
                                                 type="submit"
                                                 className=" btn btn-primary submit py-2 w-100 rounded-pill"
                                                 value="Log in"

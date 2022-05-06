@@ -4,7 +4,7 @@ import Product from "../Product/Product";
 import "../Style/Style.css";
 
 const Products = () => {
-    const [products, setProducts] = useProducts([]);
+    const [products] = useProducts([]);
 
     return (
         <div className="product_section">

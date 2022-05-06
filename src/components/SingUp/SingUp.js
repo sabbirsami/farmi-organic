@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import { Link, useNavigate } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 const SingUp = () => {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [createUserWithEmailAndPassword, user, loading, error] =
+        useCreateUserWithEmailAndPassword(auth);
+    if (user) {
+        navigate("/");
+    }
+    if (loading) {
+        return <Loading></Loading>;
+    }
+    let errorElement;
+    if (error) {
+        errorElement = (
+            <div>
+                <p className="text-danger">Error: {error?.message}</p>
+            </div>
+        );
+    }
+    const handleSingUp = (e) => {
+        e.preventDefault();
+        createUserWithEmailAndPassword(email, password);
+    };
     return (
         <div>
             <div className="signup_section ">
@@ -22,6 +48,9 @@ const SingUp = () => {
                                                     Your Email
                                                 </label>
                                                 <input
+                                                    onChange={(e) =>
+                                                        setEmail(e.target.value)
+                                                    }
                                                     className="form-control"
                                                     type="email"
                                                     name="email"
@@ -37,6 +66,11 @@ const SingUp = () => {
                                                     Your Password
                                                 </label>
                                                 <input
+                                                    onChange={(e) =>
+                                                        setPassword(
+                                                            e.target.value
+                                                        )
+                                                    }
                                                     className="form-control"
                                                     type="password"
                                                     name="password"
@@ -59,8 +93,10 @@ const SingUp = () => {
                                                     placeholder="Confirm Password"
                                                 />
                                             </div>
+                                            <p>{errorElement}</p>
                                             <div className="submit_section px-3 pt-2">
                                                 <input
+                                                    onClick={handleSingUp}
                                                     type="submit"
                                                     className=" btn btn-primary submit py-2 w-100 rounded-pill"
                                                     value="Sign Up"

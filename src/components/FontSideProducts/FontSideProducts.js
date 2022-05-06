@@ -23,7 +23,7 @@ const FontSideProducts = () => {
                     </span>
                 </div>
                 <Row>
-                    {products.slice(0, 6).map((product) => (
+                    {products.slice(0, 8).map((product) => (
                         <Product key={product._id} product={product}></Product>
                     ))}
 

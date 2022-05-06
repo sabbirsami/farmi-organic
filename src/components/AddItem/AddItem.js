@@ -3,12 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 const AddItem = () => {
     const {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
@@ -24,7 +27,17 @@ const AddItem = () => {
             .then((response) => response.json())
             .then((result) => {
                 if (result) {
-                    // reset();
+                    reset();
+
+                    toast.info("Product successfully added", {
+                        position: "top-center",
+                        autoClose: 2000,
+                        hideProgressBar: true,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 }
 
                 console.log("Success:", result);
@@ -123,6 +136,7 @@ const AddItem = () => {
                                 aria-label="With textarea"
                             />
                         </InputGroup>
+                        <ToastContainer />
 
                         <input
                             type="submit"

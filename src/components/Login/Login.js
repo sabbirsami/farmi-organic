@@ -2,27 +2,36 @@ import React, { useState } from "react";
 import "../Style/Style.css";
 import { Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+    useSignInWithEmailAndPassword,
+    useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 
 const Login = () => {
+    //LOGIN WITH GOOGLE
+    const [signInWithGoogle, googleUser, googleLoading, googleError] =
+        useSignInWithGoogle(auth);
     const navigate = useNavigate();
+    //LOGIN WITH EMAIL AND PASSWORD
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
-    if (user) {
+    if (user || googleUser) {
         navigate("/");
     }
-    if (loading) {
+    if (loading || googleLoading) {
         return <Loading></Loading>;
     }
     let errorElement;
-    if (error) {
+    if (error || googleError) {
         errorElement = (
             <div>
-                <p className="text-danger">Error: {error?.message}</p>
+                <p className="text-danger">
+                    Error: {error?.message} {googleError?.message}
+                </p>
             </div>
         );
     }
@@ -99,7 +108,10 @@ const Login = () => {
                                 </h5>
                             </div>
                             <div className="singUp_with_google px-5 mx-3 py-2">
-                                <button className="btn btn-light w-100 shadow py-2 rounded-pill">
+                                <button
+                                    className="btn btn-light w-100 shadow py-2 rounded-pill"
+                                    onClick={() => signInWithGoogle()}
+                                >
                                     {" "}
                                     Log in with{" "}
                                     <span className="text-primary">Google</span>

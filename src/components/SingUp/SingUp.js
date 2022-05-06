@@ -1,27 +1,36 @@
 import React, { useState } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+    useCreateUserWithEmailAndPassword,
+    useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { Container, Row } from "react-bootstrap";
 import auth from "../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
 
 const SingUp = () => {
+    // SIGN UP WITH GOOGLE
+    const [signInWithGoogle, googleUser, googleLoading, googleError] =
+        useSignInWithGoogle(auth);
+
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
-    if (user) {
+    if (user || googleUser) {
         navigate("/");
     }
-    if (loading) {
+    if (loading || googleLoading) {
         return <Loading></Loading>;
     }
     let errorElement;
-    if (error) {
+    if (error || googleError) {
         errorElement = (
             <div>
-                <p className="text-danger">Error: {error?.message}</p>
+                <p className="text-danger">
+                    Error: {error?.message} {googleError?.message}
+                </p>
             </div>
         );
     }
@@ -112,7 +121,10 @@ const SingUp = () => {
                                     </h5>
                                 </div>
                                 <div className="singUp_with_google px-5 mx-3 py-2">
-                                    <button className="btn btn-light w-100 shadow py-2 rounded-pill">
+                                    <button
+                                        className="btn btn-light w-100 shadow py-2 rounded-pill"
+                                        onClick={() => signInWithGoogle()}
+                                    >
                                         {" "}
                                         Sing Up with{" "}
                                         <span className="text-primary">

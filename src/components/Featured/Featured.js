@@ -24,7 +24,7 @@ const Featured = () => {
                             </h2>
                             <div className="featured_button text-start">
                                 <Button className="btn btn-dark bg-gradient px-3 py-2 rounded-pill shadow border-0 mb-2">
-                                    Add Some Fruit{" "}
+                                    Show All Fruit{" "}
                                     <FontAwesomeIcon
                                         icon={faArrowRight}
                                         style={{

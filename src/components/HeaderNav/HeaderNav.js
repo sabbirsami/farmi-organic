@@ -28,11 +28,24 @@ const HeaderNav = () => {
                         <Nav className="ms-auto">
                             <CustomLink to="/">Home</CustomLink>
                             <CustomLink to="/products">Products</CustomLink>
-                            <CustomLink to="/manageInventory">
-                                Manage Inventory
-                            </CustomLink>
-                            <CustomLink to="/addItem">Add Item</CustomLink>
-                            <CustomLink to="/myItem">My Item</CustomLink>
+                            {user ? (
+                                <CustomLink to="/manageInventory">
+                                    Manage Inventory
+                                </CustomLink>
+                            ) : (
+                                ""
+                            )}
+                            {user ? (
+                                <CustomLink to="/addItem">Add Item</CustomLink>
+                            ) : (
+                                ""
+                            )}
+                            {user ? (
+                                <CustomLink to="/myItem">My Item</CustomLink>
+                            ) : (
+                                ""
+                            )}
+
                             <CustomLink to="/about">About</CustomLink>
                         </Nav>
                         <Nav>

@@ -12,6 +12,7 @@ import ManageInventory from "./components/ManageInventory/ManageInventory";
 import AddItem from "./components/AddItem/AddItem";
 import Footer from "./components/Footer/Footer";
 import MyItem from "./components/MyItem/MyItem";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 
 function App() {
     return (
@@ -21,15 +22,37 @@ function App() {
                 <Route path="/" element={<Hero></Hero>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/products" element={<Products></Products>}></Route>
-                <Route path="/addItem" element={<AddItem></AddItem>}></Route>
-                <Route path="/myItem" element={<MyItem></MyItem>}></Route>
+                <Route
+                    path="/addItem"
+                    element={
+                        <RequireAuth>
+                            <AddItem></AddItem>
+                        </RequireAuth>
+                    }
+                ></Route>
+                <Route
+                    path="/myItem"
+                    element={
+                        <RequireAuth>
+                            <MyItem></MyItem>
+                        </RequireAuth>
+                    }
+                ></Route>
                 <Route
                     path="/manageInventory"
-                    element={<ManageInventory></ManageInventory>}
+                    element={
+                        <RequireAuth>
+                            <ManageInventory></ManageInventory>
+                        </RequireAuth>
+                    }
                 ></Route>
                 <Route
                     path="/product/:productId"
-                    element={<ProductDetail></ProductDetail>}
+                    element={
+                        <RequireAuth>
+                            <ProductDetail></ProductDetail>
+                        </RequireAuth>
+                    }
                 ></Route>
                 <Route path="/signup" element={<SingUp></SingUp>}></Route>
             </Routes>

@@ -5,21 +5,23 @@ import {
 } from "react-firebase-hooks/auth";
 import { Container, Row } from "react-bootstrap";
 import auth from "../../firebase.init";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
 
 const SingUp = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     // SIGN UP WITH GOOGLE
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
 
-    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
     if (user || googleUser) {
-        navigate("/");
+        navigate(from, { replace: true });
     }
     if (loading || googleLoading) {
         return <Loading></Loading>;

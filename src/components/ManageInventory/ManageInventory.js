@@ -1,4 +1,5 @@
 import { Container, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
 import SingleInventory from "./SingleInventory";
 
@@ -8,9 +9,9 @@ const ManageInventory = () => {
     return (
         <div>
             <Container>
-                <div className="py-5">
-                    <h1>Welcome to manage inventory</h1>
-                    <div className="py-4">
+                <div className="pt-5">
+                    <h1 className="text-start">Manage inventory</h1>
+                    <div className="pt-4">
                         <Table striped bordered hover>
                             <thead>
                                 <tr>
@@ -35,6 +36,13 @@ const ManageInventory = () => {
                             </tbody>
                         </Table>
                     </div>
+                </div>
+                <div className="pb-4 text-end">
+                    <Link to={"/addItem"}>
+                        <button className="btn btn-primary bg-gradient mt-4 ">
+                            Add New Item
+                        </button>
+                    </Link>
                 </div>
             </Container>
         </div>

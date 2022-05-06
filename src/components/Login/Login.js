@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Style/Style.css";
 import { Container, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
     useSignInWithEmailAndPassword,
     useSignInWithGoogle,
@@ -10,17 +10,21 @@ import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     //LOGIN WITH GOOGLE
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
-    const navigate = useNavigate();
+
     //LOGIN WITH EMAIL AND PASSWORD
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
     if (user || googleUser) {
-        navigate("/");
+        navigate(from, { replace: true });
     }
     if (loading || googleLoading) {
         return <Loading></Loading>;

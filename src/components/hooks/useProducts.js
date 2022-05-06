@@ -6,7 +6,7 @@ const useProducts = () => {
         fetch("https://cryptic-ridge-39056.herokuapp.com/product")
             .then((res) => res.json())
             .then((data) => setProducts(data));
-    }, []);
+    }, [products]);
     return [products, setProducts];
 };
 export default useProducts;

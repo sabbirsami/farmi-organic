@@ -11,6 +11,7 @@ import ProductDetail from "./components/ProductDetail/ProductDetail";
 import ManageInventory from "./components/ManageInventory/ManageInventory";
 import AddItem from "./components/AddItem/AddItem";
 import Footer from "./components/Footer/Footer";
+import MyItem from "./components/MyItem/MyItem";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/products" element={<Products></Products>}></Route>
                 <Route path="/addItem" element={<AddItem></AddItem>}></Route>
+                <Route path="/myItem" element={<MyItem></MyItem>}></Route>
                 <Route
                     path="/manageInventory"
                     element={<ManageInventory></ManageInventory>}

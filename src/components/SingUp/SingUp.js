@@ -72,7 +72,7 @@ const SingUp = () => {
                                 <div className="singUp">
                                     <h5>
                                         Already have an account?{" "}
-                                        <Link to={"login"}> Log In</Link>
+                                        <Link to={"/login"}> Log In</Link>
                                     </h5>
                                 </div>
                                 <div className="singUp_with_google px-5 mx-3 py-2">

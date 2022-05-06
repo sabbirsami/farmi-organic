@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from "react";
+import useProducts from "../hooks/useProducts";
 
 const SingleInventory = ({ product }) => {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetch("http://localhost:3000/product/")
-            .then((res) => res.json())
-            .then((data) => setProducts(data));
-    }, []);
+    const [products, setProducts] = useProducts();
 
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure?");
         if (proceed) {
-            const url = `http://localhost:3000/product/${id}`;
+            const url = `http://localhost:5000/product/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
                 .then((data) => {
                     const remaining = products.filter(
-                        (product) => product._id !== id
+                        (singleProduct) => singleProduct._id !== id
                     );
                     setProducts(remaining);
                     console.log(data);

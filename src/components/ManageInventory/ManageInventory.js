@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
+import useProducts from "../hooks/useProducts";
 import SingleInventory from "./SingleInventory";
 
 const ManageInventory = () => {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetch("https://cryptic-ridge-39056.herokuapp.com/product")
-            .then((res) => res.json())
-            .then((data) => setProducts(data));
-    }, []);
+    const [products, setProducts] = useProducts([]);
+
     return (
         <div>
             <Container>

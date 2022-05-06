@@ -25,6 +25,7 @@ const HeaderNav = () => {
                                 Manage Inventory
                             </CustomLink>
                             <CustomLink to="/addItem">Add Item</CustomLink>
+                            <CustomLink to="/myItem">My Item</CustomLink>
                             <CustomLink to="/about">About</CustomLink>
                         </Nav>
                         <Nav>

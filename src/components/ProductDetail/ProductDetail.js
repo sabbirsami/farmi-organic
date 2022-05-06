@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Form, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import useProductDetail from "../hook/useProductDetail";
+import useProductDetail from "../hooks/useProductDetail";
 
 const ProductDetail = () => {
     const { productId } = useParams();
@@ -48,6 +48,10 @@ const ProductDetail = () => {
                                         <input
                                             type="submit"
                                             value={"Add Stock"}
+                                            className="btn btn-primary bg-gradient rounded-pill ms-2"
+                                        />
+                                        <input
+                                            value={"Delivered"}
                                             className="btn btn-primary bg-gradient rounded-pill ms-2"
                                         />
                                     </Form>

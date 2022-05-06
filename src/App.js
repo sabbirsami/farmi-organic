@@ -9,6 +9,7 @@ import Products from "./components/Products/Products";
 import SingUp from "./components/SingUp/SingUp";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import ManageInventory from "./components/ManageInventory/ManageInventory";
+import AddItem from "./components/AddItem/AddItem";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/" element={<Hero></Hero>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/products" element={<Products></Products>}></Route>
+                <Route path="/addItem" element={<AddItem></AddItem>}></Route>
                 <Route
                     path="/manageInventory"
                     element={<ManageInventory></ManageInventory>}

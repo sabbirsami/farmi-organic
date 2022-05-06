@@ -10,6 +10,7 @@ import SingUp from "./components/SingUp/SingUp";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import ManageInventory from "./components/ManageInventory/ManageInventory";
 import AddItem from "./components/AddItem/AddItem";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
                 ></Route>
                 <Route path="/signup" element={<SingUp></SingUp>}></Route>
             </Routes>
+            <Footer></Footer>
             <ToastContainer />
         </div>
     );

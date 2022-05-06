@@ -11,10 +11,31 @@ const AddItem = () => {
         watch,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        console.log(data);
+
+        fetch("http://localhost:5000/product", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result) {
+                    // reset();
+                }
+
+                console.log("Success:", result);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    };
     return (
         <div>
-            <h1>Add Item</h1>
+            <h1 className="pt-5">Add Item</h1>
 
             <Container>
                 <div className="py-3">
@@ -95,7 +116,9 @@ const AddItem = () => {
                         <InputGroup>
                             <InputGroup.Text>Description</InputGroup.Text>
                             <FormControl
-                                {...register("about")}
+                                {...register("about", {
+                                    required: true,
+                                })}
                                 as="textarea"
                                 aria-label="With textarea"
                             />

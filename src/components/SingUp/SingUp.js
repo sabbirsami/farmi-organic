@@ -1,25 +1,36 @@
 import React, { useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
 import {
     useCreateUserWithEmailAndPassword,
     useSignInWithGoogle,
+    useSendEmailVerification,
 } from "react-firebase-hooks/auth";
 import { Container, Row } from "react-bootstrap";
 import auth from "../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
+import { toast, ToastContainer } from "react-toastify";
 
 const SingUp = () => {
+    // EMAIL VERIFICATION
+    const [sendEmailVerification, sending, verificationError] =
+        useSendEmailVerification(auth);
+
+    //NAVIGATE
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+
     // SIGN UP WITH GOOGLE
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
 
+    // SIGN UP WITH EMAIL & PASSWORD
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
+
     if (user || googleUser) {
         navigate(from, { replace: true });
     }
@@ -27,18 +38,35 @@ const SingUp = () => {
         return <Loading></Loading>;
     }
     let errorElement;
-    if (error || googleError) {
+    if (error || googleError || verificationError) {
         errorElement = (
             <div>
                 <p className="text-danger">
-                    Error: {error?.message} {googleError?.message}
+                    Error: {error?.message} {googleError?.message}{" "}
+                    {verificationError?.message}
                 </p>
             </div>
         );
     }
+
+    const handleEmailVerification = () => {
+        sendEmailVerification(auth.currentUser).then(() => {
+            toast.info("Email verification sent", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        });
+    };
+
     const handleSingUp = (e) => {
         e.preventDefault();
         createUserWithEmailAndPassword(email, password);
+        handleEmailVerification();
     };
     return (
         <div>
@@ -49,7 +77,7 @@ const SingUp = () => {
                         <div className="login-form justify-content-center align-items-center">
                             <div className="col-lg-7 mx-auto">
                                 <div className="form-container">
-                                    <form action="">
+                                    <form onSubmit={handleSingUp}>
                                         <div className="login_container p-4 p-lg-5">
                                             <div className="form-group text-start px-3 py-2">
                                                 <label
@@ -107,7 +135,6 @@ const SingUp = () => {
                                             <p>{errorElement}</p>
                                             <div className="submit_section px-3 pt-2">
                                                 <input
-                                                    onClick={handleSingUp}
                                                     type="submit"
                                                     className=" btn btn-primary submit py-2 w-100 rounded-pill"
                                                     value="Sign Up"
@@ -122,6 +149,7 @@ const SingUp = () => {
                                         <Link to={"/login"}> Log In</Link>
                                     </h5>
                                 </div>
+                                <ToastContainer></ToastContainer>
                                 <div className="singUp_with_google px-5 mx-3 py-2">
                                     <button
                                         className="btn btn-light w-100 shadow py-2 rounded-pill"

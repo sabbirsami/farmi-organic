@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 const useProductDetail = (productId) => {
-    const [product, setProduct] = useState({});
-    console.log(product);
+    const [singleProduct, setProduct] = useState({});
+    console.log(singleProduct);
 
     useEffect(() => {
         const url = `http://localhost:5000/product/${productId}`;
@@ -12,7 +12,7 @@ const useProductDetail = (productId) => {
             .then((res) => res.json())
             .then((data) => setProduct(data));
     }, [productId]);
-    return [product];
+    return [singleProduct];
 };
 
 export default useProductDetail;

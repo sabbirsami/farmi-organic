@@ -52,7 +52,7 @@ const Login = () => {
                     <div className="login-form justify-content-center align-items-center">
                         <div className="col-lg-7 mx-auto">
                             <div className="form-container">
-                                <form action="">
+                                <form onSubmit={handleLogin}>
                                     <div className="login_container p-4 p-lg-5">
                                         <div className="form-group text-start px-3 py-2">
                                             <label
@@ -93,7 +93,6 @@ const Login = () => {
                                         <p>{errorElement}</p>
                                         <div className="submit_section px-3 pt-2">
                                             <input
-                                                onClick={handleLogin}
                                                 type="submit"
                                                 className=" btn btn-primary submit py-2 w-100 rounded-pill"
                                                 value="Log in"

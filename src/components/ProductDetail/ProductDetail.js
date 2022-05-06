@@ -2,10 +2,17 @@ import React from "react";
 import { Container, Form, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useProductDetail from "../hooks/useProductDetail";
+import useProducts from "../hooks/useProducts";
 
 const ProductDetail = () => {
     const { productId } = useParams();
-    const [product] = useProductDetail(productId);
+    const [singleProduct] = useProductDetail(productId);
+    // const [product, setProduct] = useProducts([]);
+    // const { quantity } = product;
+    // const handleDelivered = (id) => {
+    //     const newQuantity = parseFloat(quantity) - 1;
+    //     setProduct.quantity(newQuantity);
+    // };
     return (
         <div>
             <Container>
@@ -15,20 +22,21 @@ const ProductDetail = () => {
                             <div className="product_body py-5">
                                 <div className="product_info text-start">
                                     <h1 className="ps-2">
-                                        Name: {product.name}
+                                        Name: {singleProduct.name}
                                     </h1>
                                     <p className="ps-2">
-                                        <b>Description:</b> {product.about}
+                                        <b>Description:</b>{" "}
+                                        {singleProduct.about}
                                     </p>
                                     <b className="ps-2">
-                                        Quantity: {product.quantity}
+                                        Quantity: {singleProduct.quantity}
                                     </b>
                                     <b className="d-block ps-2">
-                                        Price: ${product.price}
+                                        Price: ${singleProduct.price}
                                     </b>
                                     <p className="d-block ps-2">
                                         <b> Supplier:</b>{" "}
-                                        <i>{product.supplier}</i>
+                                        <i>{singleProduct.supplier}</i>
                                     </p>
                                 </div>
                                 <div className="add_stock text-start">
@@ -50,10 +58,12 @@ const ProductDetail = () => {
                                             value={"Add Stock"}
                                             className="btn btn-primary bg-gradient rounded-pill ms-2"
                                         />
-                                        <input
-                                            value={"Delivered"}
+                                        <button
+                                            // onClick={handleDelivered}
                                             className="btn btn-primary bg-gradient rounded-pill ms-2"
-                                        />
+                                        >
+                                            Delivered
+                                        </button>
                                     </Form>
                                 </div>
                             </div>
@@ -61,7 +71,11 @@ const ProductDetail = () => {
                     </div>
                     <div className="col-lg-6">
                         <div className="product_img py-4">
-                            <img className="w-100" src={product.img} alt="" />
+                            <img
+                                className="w-100 p-5"
+                                src={singleProduct.img}
+                                alt=""
+                            />
                         </div>
                     </div>
                 </Row>

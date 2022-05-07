@@ -84,6 +84,21 @@ const SingUp = () => {
                                         <div className="login_container p-4 p-lg-5">
                                             <div className="form-group text-start px-3 py-2">
                                                 <label
+                                                    htmlFor="text"
+                                                    className="label py-2 px-3"
+                                                >
+                                                    Your Name
+                                                </label>
+                                                <input
+                                                    className="form-control"
+                                                    type="password"
+                                                    name="password"
+                                                    id=""
+                                                    placeholder="Your Name"
+                                                />
+                                            </div>
+                                            <div className="form-group text-start px-3 py-2">
+                                                <label
                                                     htmlFor="email"
                                                     className=" label py-2 px-3"
                                                 >
@@ -94,6 +109,7 @@ const SingUp = () => {
                                                         setEmail(e.target.value)
                                                     }
                                                     className="form-control"
+                                                    required
                                                     type="email"
                                                     name="email"
                                                     id=""
@@ -108,6 +124,7 @@ const SingUp = () => {
                                                     Your Password
                                                 </label>
                                                 <input
+                                                    required
                                                     onChange={(e) =>
                                                         setPassword(
                                                             e.target.value
@@ -120,21 +137,7 @@ const SingUp = () => {
                                                     placeholder="Your Password"
                                                 />
                                             </div>
-                                            <div className="form-group text-start px-3 py-2">
-                                                <label
-                                                    htmlFor="password"
-                                                    className="label py-2 px-3"
-                                                >
-                                                    Confirm Password
-                                                </label>
-                                                <input
-                                                    className="form-control"
-                                                    type="password"
-                                                    name="password"
-                                                    id=""
-                                                    placeholder="Confirm Password"
-                                                />
-                                            </div>
+
                                             <p>{errorElement}</p>
                                             <div className="submit_section px-3 pt-2">
                                                 <input

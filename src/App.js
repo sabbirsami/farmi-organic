@@ -13,6 +13,8 @@ import AddItem from "./components/AddItem/AddItem";
 import Footer from "./components/Footer/Footer";
 import MyItem from "./components/MyItem/MyItem";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
+import Blog from "./components/Blog/Blog";
+import PageNotFount from "./components/PageNotFount/PageNotFount";
 
 function App() {
     return (
@@ -22,6 +24,7 @@ function App() {
                 <Route path="/" element={<Hero></Hero>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/products" element={<Products></Products>}></Route>
+                <Route path="/blog" element={<Blog></Blog>}></Route>
                 <Route
                     path="/addItem"
                     element={
@@ -55,6 +58,7 @@ function App() {
                     }
                 ></Route>
                 <Route path="/signup" element={<SingUp></SingUp>}></Route>
+                <Route path="*" element={<PageNotFount></PageNotFount>}></Route>
             </Routes>
             <Footer></Footer>
         </div>

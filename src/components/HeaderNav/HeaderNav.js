@@ -46,7 +46,7 @@ const HeaderNav = () => {
                                 ""
                             )}
 
-                            <CustomLink to="/about">About</CustomLink>
+                            <CustomLink to="/blog">Blog</CustomLink>
                         </Nav>
                         <Nav>
                             {user ? (

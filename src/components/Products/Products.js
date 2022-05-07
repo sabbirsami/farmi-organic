@@ -10,12 +10,14 @@ const Products = () => {
         <div className="product_section">
             <Container>
                 <div className="pt-4">
-                    <h1 className="text-start pt-5 pb-1">
-                        Some of the fresh fruit
+                    <h1 className="text-start pt-5 pb-1 text-uppercase d-block align-items-center">
+                        Some fresh fruit{" "}
+                        <div className="text-end ">
+                            <button className="text-end btn btn-primary">
+                                Manage Inventory
+                            </button>
+                        </div>
                     </h1>
-                    <span className="text-start d-block m-0">
-                        ---------------
-                    </span>
                 </div>
                 <Row>
                     {products.map((product) => (

@@ -109,7 +109,7 @@ const ProductDetail = () => {
                                             {errorMessage}
                                             <input
                                                 type="submit"
-                                                value={"Add Stock"}
+                                                value={"Restock"}
                                                 className="btn btn-primary bg-gradient rounded-pill mt-2"
                                             />
                                         </Form.Group>

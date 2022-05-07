@@ -1,12 +1,20 @@
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+    faEnvelope,
+    faUser,
+    faVoicemail,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container, Form, FormControl, InputGroup } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const AddItem = () => {
+    const [user] = useAuthState(auth);
+    console.log(user);
     const {
         register,
         handleSubmit,
@@ -59,6 +67,7 @@ const AddItem = () => {
                                 Product Name
                             </InputGroup.Text>
                             <FormControl
+                                required
                                 {...register("name", {
                                     required: true,
                                     maxLength: 20,
@@ -73,6 +82,7 @@ const AddItem = () => {
                         <InputGroup className="mb-3">
                             <InputGroup.Text>$</InputGroup.Text>
                             <FormControl
+                                required
                                 {...register("price")}
                                 placeholder="Price"
                                 aria-label="Amount (to the nearest dollar)"
@@ -84,6 +94,7 @@ const AddItem = () => {
                         <InputGroup className="mb-3">
                             <InputGroup.Text>Quantity</InputGroup.Text>
                             <FormControl
+                                required
                                 {...register("quantity")}
                                 aria-label="Amount (to the nearest dollar)"
                             />
@@ -101,6 +112,7 @@ const AddItem = () => {
                                 https://example.com/img.jpg
                             </InputGroup.Text>
                             <FormControl
+                                required
                                 {...register("img")}
                                 id="basic-url"
                                 aria-describedby="basic-addon3"
@@ -114,14 +126,39 @@ const AddItem = () => {
                                     icon={faUser}
                                     style={{
                                         color: "black",
-                                        // paddingLeft: "10px",
                                     }}
                                 />
                             </InputGroup.Text>
                             <FormControl
+                                required
                                 {...register("supplier")}
                                 placeholder="Supplier"
                                 aria-label="Amount (to the nearest dollar)"
+                            />
+                        </InputGroup>
+
+                        {/* IMAGE INPUT  */}
+                        <Form.Label
+                            className="d-block text-start"
+                            htmlFor="basic-url"
+                        >
+                            Your Email
+                        </Form.Label>
+                        <InputGroup className="mb-3">
+                            <InputGroup.Text id="basic-addon3">
+                                <FontAwesomeIcon
+                                    icon={faEnvelope}
+                                    style={{
+                                        color: "black",
+                                    }}
+                                />
+                            </InputGroup.Text>
+                            <FormControl
+                                value={user?.email}
+                                readOnly
+                                {...register("email")}
+                                id="basic-url"
+                                aria-describedby="basic-addon3"
                             />
                         </InputGroup>
 
@@ -129,6 +166,7 @@ const AddItem = () => {
                         <InputGroup>
                             <InputGroup.Text>Description</InputGroup.Text>
                             <FormControl
+                                required
                                 {...register("about", {
                                     required: true,
                                 })}

@@ -3,16 +3,49 @@ import { Container, Form, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useProductDetail from "../hooks/useProductDetail";
 import useProducts from "../hooks/useProducts";
+import { useForm } from "react-hook-form";
 
 const ProductDetail = () => {
     const { productId } = useParams();
     const [singleProduct] = useProductDetail(productId);
-    // const [product, setProduct] = useProducts([]);
-    // const { quantity } = product;
-    // const handleDelivered = (id) => {
-    //     const newQuantity = parseFloat(quantity) - 1;
-    //     setProduct.quantity(newQuantity);
-    // };
+
+    console.log(singleProduct.quantity);
+    const {
+        register,
+        handleSubmit,
+
+        reset,
+        formState: { errors },
+    } = useForm();
+
+    const url = `http://localhost:5000/product/${productId}`;
+
+    const handleDelivered = () => {
+        const quantityItem = parseInt(singleProduct.quantity) - 1;
+        handleQuantity(quantityItem);
+    };
+
+    const handleStock = (data) => {
+        const quantity = parseInt(data.quantity);
+        const previousQuantity = parseInt(singleProduct.quantity);
+        const updateQuantitynew = quantity + previousQuantity;
+        console.log(updateQuantitynew);
+        handleQuantity(updateQuantitynew);
+        // e.target.reset();
+    };
+
+    const handleQuantity = (updateQuantity) => {
+        fetch(url, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ updateQuantity }),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+            });
+    };
+
     return (
         <div>
             <Container>
@@ -40,7 +73,7 @@ const ProductDetail = () => {
                                     </p>
                                 </div>
                                 <div className="add_stock text-start">
-                                    <Form>
+                                    <Form onSubmit={handleSubmit(handleStock)}>
                                         <Form.Group
                                             className="mb-2"
                                             controlId="exampleForm.ControlInput1"
@@ -49,22 +82,23 @@ const ProductDetail = () => {
                                                 Add stock
                                             </Form.Label>
                                             <Form.Control
+                                                {...register("quantity")}
                                                 className=" rounded-pill w-50"
                                                 type="number"
                                             />
+                                            <input
+                                                type="submit"
+                                                value={"Add Stock"}
+                                                className="btn btn-primary bg-gradient rounded-pill my-2"
+                                            />
                                         </Form.Group>
-                                        <input
-                                            type="submit"
-                                            value={"Add Stock"}
-                                            className="btn btn-primary bg-gradient rounded-pill ms-2"
-                                        />
-                                        <button
-                                            // onClick={handleDelivered}
-                                            className="btn btn-primary bg-gradient rounded-pill ms-2"
-                                        >
-                                            Delivered
-                                        </button>
                                     </Form>
+                                    <button
+                                        onClick={handleDelivered}
+                                        className="btn btn-primary bg-gradient rounded-pill ms-2"
+                                    >
+                                        Delivered
+                                    </button>
                                 </div>
                             </div>
                         </div>

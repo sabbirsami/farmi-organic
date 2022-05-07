@@ -31,6 +31,8 @@ const SingUp = () => {
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
 
+    //CONDITIONS
+
     if (user || googleUser) {
         navigate(from, { replace: true });
     }
@@ -54,6 +56,7 @@ const SingUp = () => {
             toast.info("Email verification sent", {
                 position: "top-center",
                 autoClose: 2000,
+                icon: false,
                 hideProgressBar: true,
                 closeOnClick: true,
                 pauseOnHover: true,

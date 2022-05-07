@@ -2,8 +2,10 @@ import React from "react";
 import { Container, Form, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useProductDetail from "../hooks/useProductDetail";
-import useProducts from "../hooks/useProducts";
+
 import { useForm } from "react-hook-form";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 const ProductDetail = () => {
     const { productId } = useParams();
@@ -24,14 +26,32 @@ const ProductDetail = () => {
         const quantityItem = parseInt(singleProduct.quantity) - 1;
         handleQuantity(quantityItem);
     };
-
-    const handleStock = (data) => {
-        const quantity = parseInt(data.quantity);
-        const previousQuantity = parseInt(singleProduct.quantity);
-        const updateQuantitynew = quantity + previousQuantity;
-        console.log(updateQuantitynew);
-        handleQuantity(updateQuantitynew);
-        // e.target.reset();
+    let errorMessage;
+    const handleStock = (data, e) => {
+        if (data.quantity < 0) {
+            errorMessage = (
+                <p className="text-danger">Please give a valid number</p>
+            );
+            toast.error("Please give a valid number", {
+                position: "top-center",
+                theme: "colored",
+                icon: false,
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return errorMessage;
+        } else {
+            const quantity = parseInt(data.quantity);
+            const previousQuantity = parseInt(singleProduct.quantity);
+            const updateQuantitynew = quantity + previousQuantity;
+            console.log(updateQuantitynew);
+            handleQuantity(updateQuantitynew);
+        }
+        e.target.reset();
     };
 
     const handleQuantity = (updateQuantity) => {
@@ -86,19 +106,31 @@ const ProductDetail = () => {
                                                 className=" rounded-pill w-50"
                                                 type="number"
                                             />
+                                            {errorMessage}
                                             <input
                                                 type="submit"
                                                 value={"Add Stock"}
-                                                className="btn btn-primary bg-gradient rounded-pill my-2"
+                                                className="btn btn-primary bg-gradient rounded-pill mt-2"
                                             />
                                         </Form.Group>
                                     </Form>
-                                    <button
-                                        onClick={handleDelivered}
-                                        className="btn btn-primary bg-gradient rounded-pill ms-2"
-                                    >
-                                        Delivered
-                                    </button>
+                                    {singleProduct.quantity ? (
+                                        <button
+                                            onClick={handleDelivered}
+                                            className="btn btn-primary bg-gradient rounded-pill"
+                                        >
+                                            Delivered
+                                        </button>
+                                    ) : (
+                                        <button
+                                            disabled
+                                            onClick={handleDelivered}
+                                            className="btn btn-primary bg-gradient rounded-pill"
+                                        >
+                                            Stock Out
+                                        </button>
+                                    )}
+                                    <ToastContainer />
                                 </div>
                             </div>
                         </div>

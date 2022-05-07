@@ -8,9 +8,7 @@ const MyItem = () => {
     useEffect(() => {
         const email = user?.email;
         console.log(email);
-        fetch(
-            `https://cryptic-ridge-39056.herokuapp.com/product?email=${email}`
-        )
+        fetch(`http://cryptic-ridge-39056.herokuapp.com/product?email=${email}`)
             .then((res) => res.json())
             .then((data) => setUserProduct(data));
     }, []);

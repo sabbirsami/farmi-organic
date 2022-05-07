@@ -24,13 +24,11 @@ const Hero = () => {
                                     </span>{" "}
                                 </h1>
                                 <p className="fs-5 my-3">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Nostrum provident totam
-                                    quo distinctio suscipit quas accusantium
-                                    rerum enim dolores inventore. Soluta
-                                    perspiciatis tenetur mollitia, tempore
-                                    magnam illum debitis odit in optio,
-                                    cupiditate commodi? Magnam, nulla.
+                                    Best website for you if your searching fresh
+                                    fruit. We provide best fresh fruit our all
+                                    employ try their best so that we can provide
+                                    best fruit. You can also buy fruit at lowest
+                                    price so share our website if you like it
                                 </p>
                                 <button className="btn btn-danger bg-gradient px-4 py-2 rounded-pill fs-4 border-0 my-4">
                                     Contact Us{" "}

@@ -1,8 +1,4 @@
-import {
-    faEnvelope,
-    faUser,
-    faVoicemail,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container, Form, FormControl, InputGroup } from "react-bootstrap";

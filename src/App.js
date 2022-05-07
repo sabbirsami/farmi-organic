@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-
 import HeaderNav from "./components/HeaderNav/HeaderNav";
 import { Route, Routes } from "react-router-dom";
 import Hero from "./components/Hero/Hero";

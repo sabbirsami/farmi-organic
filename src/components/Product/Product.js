@@ -9,7 +9,6 @@ const Product = ({ product }) => {
         navigate(`/product/${_id}`);
     };
 
-    console.log(product);
     return (
         <div className="col-lg-3 py-4">
             <div className="fruit_container shadow rounded-3">

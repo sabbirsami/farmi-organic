@@ -20,7 +20,7 @@ const ProductDetail = () => {
         formState: { errors },
     } = useForm();
 
-    const url = `http://localhost:5000/product/${productId}`;
+    const url = `https://cryptic-ridge-39056.herokuapp.com/product/${productId}`;
 
     const handleDelivered = () => {
         const quantityItem = parseInt(singleProduct.quantity) - 1;

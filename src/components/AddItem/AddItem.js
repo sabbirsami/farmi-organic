@@ -25,7 +25,7 @@ const AddItem = () => {
     const onSubmit = (data) => {
         console.log(data);
 
-        fetch("http://localhost:5000/product", {
+        fetch("https://cryptic-ridge-39056.herokuapp.com/product", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

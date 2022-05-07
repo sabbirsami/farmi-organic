@@ -5,7 +5,7 @@ const useProductDetail = (productId) => {
     console.log(singleProduct);
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${productId}`;
+        const url = `https://cryptic-ridge-39056.herokuapp.com/product/${productId}`;
 
         console.log(url);
         fetch(url)

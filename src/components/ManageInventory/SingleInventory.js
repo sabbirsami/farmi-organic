@@ -20,6 +20,7 @@ const SingleInventory = ({ product }) => {
                 });
         }
     };
+    console.log(products);
     return (
         <tr>
             <td>{product.name}</td>

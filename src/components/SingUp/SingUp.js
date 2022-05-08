@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
+import { sendEmailVerification } from "firebase/auth";
+
 import {
     useCreateUserWithEmailAndPassword,
     useSignInWithGoogle,
@@ -13,8 +15,23 @@ import { toast, ToastContainer } from "react-toastify";
 
 const SingUp = () => {
     // EMAIL VERIFICATION
-    const [sendEmailVerification, sending, verificationError] =
-        useSendEmailVerification(auth);
+    // const [sendEmailVerification, sending, verificationError] =
+    //     useSendEmailVerification(auth);
+
+    const handleEmailVerification = () => {
+        sendEmailVerification(auth.currentUser).then(() => {
+            toast.info("Email verification sent", {
+                position: "top-center",
+                autoClose: 6000,
+                icon: false,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        });
+    };
 
     //NAVIGATE
     const navigate = useNavigate();
@@ -32,39 +49,24 @@ const SingUp = () => {
         useCreateUserWithEmailAndPassword(auth);
 
     //CONDITIONS
-
-    if (user || googleUser) {
-        navigate(from, { replace: true });
-    }
     if (loading || googleLoading) {
         return <Loading></Loading>;
     }
+    if (user || googleUser) {
+        navigate(from, { replace: true });
+    }
+
     let errorElement;
-    if (error || googleError || verificationError) {
+    if (error || googleError) {
         errorElement = (
             <div>
                 <p className="text-danger">
-                    Error: {error?.message} {googleError?.message}{" "}
-                    {verificationError?.message}
+                    Error: {error?.message.split(":")[1]}{" "}
+                    {googleError?.message.split(":")[1]}{" "}
                 </p>
             </div>
         );
     }
-
-    const handleEmailVerification = () => {
-        sendEmailVerification(auth.currentUser).then(() => {
-            toast.info("Email verification sent", {
-                position: "top-center",
-                autoClose: 2000,
-                icon: false,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-        });
-    };
 
     const handleSingUp = (e) => {
         e.preventDefault();

@@ -25,6 +25,7 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
     if (user || googleUser) {
+        navigate(from, { replace: true });
     }
     if (loading || googleLoading) {
         return <Loading></Loading>;
@@ -34,7 +35,8 @@ const Login = () => {
         errorElement = (
             <div>
                 <p className="text-danger">
-                    Error: {error?.message} {googleError?.message}
+                    Error: {error?.message.split(":")[1]}{" "}
+                    {googleError?.message.split(":")[1]}
                 </p>
             </div>
         );
@@ -47,7 +49,6 @@ const Login = () => {
         });
         console.log(data);
         localStorage.setItem("accessToken", data.accessToken);
-        navigate(from, { replace: true });
     };
     return (
         // d-flex justify-content-center align-items-center

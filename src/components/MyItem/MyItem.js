@@ -8,7 +8,11 @@ const MyItem = () => {
     useEffect(() => {
         const email = user?.email;
         console.log(email);
-        fetch(`http://cryptic-ridge-39056.herokuapp.com/product?email=${email}`)
+        fetch(`http://cryptic-ridge-39056.herokuapp.com/order?email=${email}`, {
+            headers: {
+                authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+        })
             .then((res) => res.json())
             .then((data) => setUserProduct(data));
     }, []);

@@ -8,6 +8,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
+import axios from "axios";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -24,7 +25,6 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
     if (user || googleUser) {
-        navigate(from, { replace: true });
     }
     if (loading || googleLoading) {
         return <Loading></Loading>;
@@ -39,9 +39,15 @@ const Login = () => {
             </div>
         );
     }
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post("http://localhost:5000/login", {
+            email,
+        });
+        console.log(data);
+        localStorage.setItem("accessToken", data.accessToken);
+        navigate(from, { replace: true });
     };
     return (
         // d-flex justify-content-center align-items-center

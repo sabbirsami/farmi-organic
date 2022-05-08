@@ -98,40 +98,33 @@ const Blog = () => {
                         </thead>
                         <tbody className="text-start">
                             <tr>
-                                <td>
-                                    JavaScript is a interpreted, or just-in-time
-                                    compiled programming language that is used
-                                    for writing scripts on the website.
-                                </td>
-                                <td>
-                                    Node.js is an cross-platform and back-end
-                                    JavaScript runtime environment.
-                                </td>
+                                <td>SQL databases are table-based.</td>
+                                <td>NoSQL databases are non-relational.</td>
                             </tr>
                             <tr>
-                                <td>You can run JavaScript only in browser.</td>
                                 <td>
-                                    With the help of NodeJS you can ran
-                                    Javascript outside of the browser.
+                                    SQL is the programming language used to
+                                    interface with relational databases
+                                </td>
+                                <td>
+                                    A NoSQL database has dynamic schema for
+                                    unstructured data.
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    JavaScript is uses for developing font side
-                                    development.
+                                    Great support is available for all SQL
+                                    database from their vendors.
                                 </td>
 
                                 <td>
-                                    Nodejs is uses for server-side development.
+                                    Some NoSQL database you still have to rely
+                                    on community support and only limited
+                                    outside experts are available
                                 </td>
                             </tr>
                         </tbody>
                     </Table>
-                </div>
-                <div className="question04">
-                    <h2 className="py-4">
-                        04. What is the purpose of jwt and how does it work
-                    </h2>
                 </div>
             </Container>
         </div>
